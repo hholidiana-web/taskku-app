@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4f46e5">
+  <title>TaskKu — Manajemen Tugas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">RUANG PRODUKTIVITAS</p>
+        <h1>Task<span>Ku</span></h1>
+        <p class="subtitle">Atur tugasmu, selesaikan satu per satu.</p>
+      </div>
+      <div class="date-chip" id="todayLabel">Hari ini</div>
+    </header>
+
+    <section class="stats" aria-label="Ringkasan tugas">
+      <article class="stat-card"><span>Total tugas</span><strong id="totalCount">0</strong></article>
+      <article class="stat-card"><span>Belum selesai</span><strong id="pendingCount">0</strong></article>
+      <article class="stat-card"><span>Selesai</span><strong id="doneCount">0</strong></article>
+    </section>
+
+    <section class="panel form-panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">MULAI DARI SINI</p><h2>Tambah tugas</h2></div>
+      </div>
+      <form id="taskForm">
+        <label for="taskInput">Nama tugas</label>
+        <div class="input-row">
+          <input id="taskInput" type="text" placeholder="Contoh: Mengerjakan tugas kuliah..." maxlength="90" required>
+          <button class="primary-btn" type="submit">+ Tambah</button>
+        </div>
+        <div class="form-options">
+          <div><label for="categoryInput">Kategori</label>
+            <select id="categoryInput">
+              <option>Kuliah</option><option>Pekerjaan</option><option>Pribadi</option><option>Lainnya</option>
+            </select>
+          </div>
+          <div><label for="dateInput">Tenggat</label><input id="dateInput" type="date"></div>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel list-panel">
+      <div class="list-heading">
+        <div><p class="eyebrow">DAFTAR AKTIVITAS</p><h2>Tugas saya</h2></div>
+        <button id="clearDoneBtn" class="text-btn" type="button">Hapus yang selesai</button>
+      </div>
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Cari tugas..." aria-label="Cari tugas">
+        <select id="filterInput" aria-label="Filter tugas">
+          <option value="all">Semua tugas</option>
+          <option value="pending">Belum selesai</option>
+          <option value="done">Selesai</option>
+        </select>
+      </div>
+      <ul id="taskList" class="task-list"></ul>
+      <div id="emptyState" class="empty-state">
+        <div class="empty-icon">✓</div><h3>Belum ada tugas</h3><p>Tambahkan tugas pertamamu di atas.</p>
+      </div>
+    </section>
+    <footer>TaskKu • Data tersimpan otomatis di browser perangkat ini.</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
